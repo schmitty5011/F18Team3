@@ -11,32 +11,31 @@
 
     <body>
         <header>
-            <div style="background: #000; border: solid 2px #66ff33;">
-                <img src="<?php echo $app_path ?>./images/siteLogo.png" alt ='header logo' style = "vertical-align:middle;width:78px;height:68px;">
-                <span style="letter-spacing: 2px;font-size: 50px; color: #66ff33; font-family: American Typewriter, serif; vertical-align:middle; margin-left: 10px">
+            <div id="header-div">
+                <img id="header-img" src="<?php echo $app_path ?>./images/siteLogo.png" alt ='header logo' >
+                <span id="header-span">
                     My Guitar Shop
                 </span>
-                <span style="font-style: italic;font-size: 20px; color: #ff9900; font-family: Optima, sans-serif; vertical-align:middle; margin-left: 10px">
+                <span id="header-span2">
                     "The Amazon of musical instruments"!
                 </span>
             </div>
             <hr>
             <!--Navigation bar added -->
             <div style="text-align: right;">
-                <a style="text-decoration: none" href="<?php echo $app_path; ?>">Home&nbsp; &nbsp;</a>
+                <a id="non-undeline-links" href="<?php echo $app_path; ?>">Home&nbsp; &nbsp;</a>
                 <?php
                 $account_url = $app_path . 'account';
                 $logout_url = $account_url . '?action=logout';
                 if (isset($_SESSION['user'])) :
                     ?>
-                    <a style="text-decoration: none" href="<?php echo $account_url; ?>">My Account&nbsp; &nbsp;</a>
-                    <a style="text-decoration: none" href="<?php echo $logout_url; ?>">Logout&nbsp; &nbsp;</a>
+                    <a id="non-undeline-links" href="<?php echo $account_url; ?>">My Account&nbsp; &nbsp;</a>
+                    <a id="non-undeline-links" href="<?php echo $logout_url; ?>">Logout&nbsp; &nbsp;</a>
                 <?php else: ?>
-                    <a style="text-decoration: none" href="<?php echo $account_url; ?>">Login/Register&nbsp; &nbsp;</a>
+                    <a id="non-undeline-links" href="<?php echo $account_url; ?>">Login/Register&nbsp; &nbsp;</a>
                 <?php endif; ?>
-                <a style="text-decoration: none;" href="<?php echo $app_path . 'cart'; ?>">
-                    Cart<img src="<?php echo $app_path ?>./images/shoppingCart.png" alt ='header logo' style = "margin-right: 2px;padding: 1px; vertical-align:middle;width:25px;height:25px;">
-
+                <a id="non-undeline-links" href="<?php echo $app_path . 'cart'; ?>">
+                    Cart<img id="cart-logo" src="<?php echo $app_path ?>./images/shoppingCart.png" alt ='header logo'>
                 </a>
 
             </div>

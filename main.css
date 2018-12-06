@@ -1,13 +1,13 @@
 /* the styles for the HTML elements */
 html {
-    background-color: rgb(192, 192, 192);
+    background-color: black;
 }
 body {
     font-family: Arial, Helvetica, sans-serif;
-    width: 960px;
+    width: 92%;
     margin: 0 auto;
     padding: 0 2em;
-    background-color: white;
+    background-color: #FFFFFF;
     border: 1px solid black;
 }
 header {
@@ -20,7 +20,7 @@ header h1 {
 main {
     margin-bottom: 1em;
     float: left;
-    width: 780px;
+    width: 70%;
 }
 aside {
     float: left;
@@ -30,7 +30,8 @@ aside {
 }
 section {
     float: left;
-    width: 500px;
+    width: 70%
+    /*width: 500px;*/
 }
 footer {
     clear: both;
@@ -105,7 +106,8 @@ form {
     float: left;
     padding-left: 1em;
     padding-bottom: .5em;
-    width: 330px;
+    /*width: 330px;*/
+    width:70%;
 }
 #left_column p img {
     text-align: center;
@@ -249,4 +251,48 @@ form {
 #copyright {
     margin: 1em 0;	
 }
-
+#catalog-image {  
+    width: 40%;  
+    height: 40%; 
+} 
+#header-div{
+    background: #000; 
+    border: solid 2px #66ff33;
+}
+#header-img{
+    vertical-align:middle;
+    width:78px;
+    height:68px;
+}
+#header-span{
+    letter-spacing: 2px;
+    font-size: 50px; 
+    color: #66ff33; 
+    font-family: American Typewriter, serif; 
+    vertical-align:middle; 
+    margin-left: 10px
+}
+#header-span2{
+    font-style: italic;
+    font-size: 20px; 
+    color: #ff9900; 
+    font-family: Optima, sans-serif; 
+    vertical-align:middle; 
+    margin-left: 10px
+}
+#non-undeline-links{
+    text-decoration: none 
+}
+#cart-logo{
+    margin-right: 2px;
+    padding: 1px; 
+    vertical-align:middle;
+    width:25px;
+    height:25px;
+}
+#aside-style{
+    border:solid blue 1px;
+    pading: 5px 5px 5px 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
