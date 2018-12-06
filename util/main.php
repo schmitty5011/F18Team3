@@ -9,6 +9,7 @@ $app_path = '/' . $dirs[1] . '/' . $dirs[2] . '/';
 
 // Set the include path
 set_include_path($doc_root . $app_path);
+//for index.php at home Applications/XAMPP/xamppfiles/htdocs/project/612_HW_5/
 
 // Get common code
 require_once('util/tags.php');
