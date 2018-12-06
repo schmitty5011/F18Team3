@@ -26,17 +26,17 @@ $validate = new Validate();
 $fields = $validate->getFields();
 
 // for the Registration page and other pages
-$fields->addField('email', 'Must be valid email.');
-$fields->addField('password_1');
+$fields->addField('email', '(Must be valid email.)');
+$fields->addField('password_1','(Atleast 6 chars & 1 upper & lower case)');
 $fields->addField('password_2');
 $fields->addField('first_name');
 $fields->addField('last_name');
 $fields->addField('ship_line1');
 $fields->addField('ship_line2');
-$fields->addField('ship_city');
+$fields->addField('ship_city','(No start/end space, digits, special chars)');
 $fields->addField('ship_state');
 $fields->addField('ship_zip');
-$fields->addField('ship_phone');
+$fields->addField('ship_phone','(Required format: 999-999-9999)');
 $fields->addField('bill_line1');
 $fields->addField('bill_line2');
 $fields->addField('bill_city');
@@ -106,17 +106,17 @@ switch ($action) {
         $validate->text('last_name', $last_name);
         $validate->text('ship_line1', $ship_line1);        
         $validate->text('ship_line2', $ship_line2, false);        
-        $validate->text('ship_city', $ship_city);        
-        $validate->text('ship_state', $ship_state);        
-        $validate->text('ship_zip', $ship_zip);        
-        $validate->text('ship_phone', $ship_phone, false);        
+        $validate->city('ship_city', $ship_city);        
+        $validate->state('ship_state', $ship_state);        
+        $validate->zip('ship_zip', $ship_zip);        
+        $validate->phone('ship_phone', $ship_phone, false);        
         if (!$use_shipping) {
             $validate->text('bill_line1', $bill_line1);        
             $validate->text('bill_line2', $bill_line2, false);        
-            $validate->text('bill_city', $bill_city);        
-            $validate->text('bill_state', $bill_state);        
-            $validate->text('bill_zip', $bill_zip);        
-            $validate->text('bill_phone', $bill_phone, false);
+            $validate->city('bill_city', $bill_city);        
+            $validate->state('bill_state', $bill_state);        
+            $validate->zip('bill_zip', $bill_zip);        
+            $validate->phone('bill_phone', $bill_phone, false);
         }
         
         // If necessary, clear billing address data

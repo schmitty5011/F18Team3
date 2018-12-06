@@ -27,7 +27,7 @@ class Validate {
         if ($required && empty($value)) {
             $field->setErrorMessage('Required.');
         } else if (strlen($value) < $min) {
-            $field->setErrorMessage('Too short.');
+            $field->setErrorMessage('Too short. Must have more than '.$min.' chars!');
         } else if (strlen($value) > $max) {
             $field->setErrorMessage('Too long.');
         } else {
@@ -68,7 +68,7 @@ class Validate {
 
         // Call the pattern method to validate a phone number
         $pattern = '/^[[:digit:]]{3}-[[:digit:]]{3}-[[:digit:]]{4}$/';
-        $message = 'Invalid phone number.';
+        $message = 'Invalid phone number. Use 999-999-9999 format';
         $this->pattern($name, $value, $pattern, $message, $required);
     }
 
@@ -88,11 +88,11 @@ class Validate {
         // Split email address on @ sign and check parts
         $parts = explode('@', $value);
         if (count($parts) < 2) {
-            $field->setErrorMessage('At sign required.');
+            $field->setErrorMessage('"@" sign required.');
             return;
         }
         if (count($parts) > 2) {
-            $field->setErrorMessage('Only one at sign allowed.');
+            $field->setErrorMessage('Only one "@" sign allowed.');
             return;
         }
         $local = $parts[0];
@@ -214,6 +214,18 @@ class Validate {
         $message = 'Invalid zip code.';
         $this->pattern($name, $value, $pattern, $message, $required);
     }
+      // Validate city, longest city in the world is 26 chars and only text
+    public function city($name, $value,
+            $required = true, $min = 1, $max = 26) {
+        // Get Field object
+        $field = $this->fields->getField($name);
+        $this->text($name, $value, $required);
+        if ($field->hasError()) { return; }
+        $pattern = '/^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/';
+        $message = 'No start/end space,no digits,only 1 space between words';
+        $this->pattern($name, $value, $pattern, $message, $required);
+    }
+    
 
     public function cardType($name, $value) {
         $field = $this->fields->getField($name);
