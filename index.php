@@ -1,7 +1,7 @@
 <?php
 require_once('util/main.php');
 require_once('model/product_db.php');
-//date 05 nov 2018
+//date 05 nov 2018 creted for timestamp
 // Set the featured product IDs in an array
 $product_ids = array(1, 7, 9);
 // Note: You could also store a list of featured products in the database
