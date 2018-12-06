@@ -5,12 +5,25 @@
     <?php if (count($products) == 0) : ?>
         <p>There are no products in this category.</p>
     <?php else: ?>
-        <?php foreach ($products as $product) : ?>
-        <p>
-            <a href="<?php echo '?product_id=' . $product['productID']; ?>">
+        <?php foreach ($products as $product) : 
+            $image_filename = $product['productCode'] . '_m.png';
+            $image_path = $app_path . 'images/' . $image_filename;
+            $image_alt = 'Image filename: ' . $image_filename;
+    ?>
+        <table  cellpadding="6">
+        <tr> 
+             <td>
+            <img height="40%" width="40%" src="<?php echo $image_path; ?>"
+            alt="<?php echo $image_alt; ?>" />
+            </td>
+            <td>
+            <a  href="<?php echo '?product_id=' . $product['productID']; ?>">
                 <?php echo htmlspecialchars($product['productName']); ?>
             </a>
-        </p>
+            </td>
+           
+        </tr>
+        </table>
         <?php endforeach; ?>
     <?php endif; ?>
 </main>
