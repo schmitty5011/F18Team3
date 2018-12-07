@@ -27,16 +27,16 @@ $fields = $validate->getFields();
 
 // for the Registration page and other pages
 $fields->addField('email', '(Must be valid email.)');
-$fields->addField('password_1','(Atleast 6 chars & 1 upper & lower case)');
+$fields->addField('password_1','(Atleast 6 chars & 1 upper & lower case.)');
 $fields->addField('password_2');
 $fields->addField('first_name');
 $fields->addField('last_name');
 $fields->addField('ship_line1');
 $fields->addField('ship_line2');
-$fields->addField('ship_city','(No start/end space, digits, special chars)');
-$fields->addField('ship_state');
-$fields->addField('ship_zip');
-$fields->addField('ship_phone','(Required format: 999-999-9999)');
+$fields->addField('ship_city','(No start/end space, digits, special chars.)');
+$fields->addField('ship_state','(Use 2 chars name: e.g. MA,TX etc.)');
+$fields->addField('ship_zip','(Use format 99999 or 99999-9999.)');
+$fields->addField('ship_phone','(Use format: 999-999-9999.)');
 $fields->addField('bill_line1');
 $fields->addField('bill_line2');
 $fields->addField('bill_city');
@@ -100,8 +100,8 @@ switch ($action) {
         
         // Validate user data       
         $validate->email('email', $email);
-        $validate->text('password_1', $password_1, true, 6, 30);
-        $validate->text('password_2', $password_2, true, 6, 30);        
+        $validate->password('password_1', $password_1, true, 6, 30);
+        $validate->password('password_2', $password_2, true, 6, 30);        
         $validate->text('first_name', $first_name);
         $validate->text('last_name', $last_name);
         $validate->text('ship_line1', $ship_line1);        
@@ -189,12 +189,13 @@ switch ($action) {
         include 'account_login_register.php';
         break;
     case 'login':
+        
         $email = filter_input(INPUT_POST, 'email');
         $password = filter_input(INPUT_POST, 'password');
         
         // Validate user data
         $validate->email('email', $email);
-        $validate->text('password', $password, true, 6, 30);        
+        $validate->password('password', $password, true, 6, 30);        
 
         // If validation errors, redisplay Login page and exit controller
         if ($fields->hasErrors()) {
@@ -272,8 +273,8 @@ switch ($action) {
 
         // Validate user data
         $validate->email('email', $email);
-        $validate->text('password_1', $password_1, false, 6, 30);
-        $validate->text('password_2', $password_2, false, 6, 30);        
+        $validate->password('password_1', $password_1, false, 6, 30);
+        $validate->password('password_2', $password_2, false, 6, 30);        
         $validate->text('first_name', $first_name);
         $validate->text('last_name', $last_name);        
         
@@ -353,10 +354,10 @@ switch ($action) {
         // Validate the data
         $validate->text('line1', $line1);        
         $validate->text('line2', $line2, false);        
-        $validate->text('city', $city);        
-        $validate->text('state', $state);        
-        $validate->text('zip', $zip);        
-        $validate->text('phone', $phone, false);        
+        $validate->city('city', $city);        
+        $validate->state('state', $state);        
+        $validate->zip('zip', $zip);        
+        $validate->phone('phone', $phone, false);        
 
         // If validation errors, redisplay Login page and exit controller
         if ($fields->hasErrors()) {

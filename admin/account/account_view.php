@@ -1,6 +1,7 @@
 <?php include 'view/header.php'; ?>
 <?php include 'view/sidebar_admin.php'; ?>
 <main>
+    <div id="account_view">
     <h1>Administrator Accounts</h1>
     <?php if (isset($_SESSION['admin'])) : ?>
     <h2>My Account</h2>
@@ -75,5 +76,6 @@
         <label>&nbsp;</label>
         <input type="submit" value="Add Admin User">
     </form>
+    </div>
 </main>
 <?php include 'view/footer.php'; ?>

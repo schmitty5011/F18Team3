@@ -4,6 +4,7 @@
 if (!isset($password_message)) { $password_message = ''; } 
 ?>
 <main>
+    <div id="register_form">
     <h1>Register</h1>
     <form action="." method="post" id="register_form">
 
@@ -60,7 +61,7 @@ if (!isset($password_message)) { $password_message = ''; }
                value="<?php echo htmlspecialchars($ship_state); ?>"
                size="30" required>
         <?php echo $fields->getField('ship_state')->getHTML(); ?><br>
-
+       
         <label>Zip Code:</label>
         <input type="text" name="ship_zip"
                value="<?php echo htmlspecialchars($ship_zip); ?>"
@@ -117,8 +118,9 @@ if (!isset($password_message)) { $password_message = ''; }
         <?php echo $fields->getField('bill_phone')->getHTML(); ?><br>
 
         <label>&nbsp;</label>
-        <input type="submit" value="Register">
+        <input  id="non-underline-links"  type="submit" value="Register">
     </form>
+    </div>
 </main>
 <?php include '../view/footer.php';
 ?>

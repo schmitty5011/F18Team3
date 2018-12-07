@@ -1,5 +1,7 @@
 <?php include '../view/header.php'; ?>
+<?php include '../view/sidebar.php'; ?>
 <main>
+    <div id="cart_view">
     <h1>Your Cart</h1>
     <?php if (cart_product_count() == 0) : ?>
         <p>There are no products in your cart.</p>
@@ -38,15 +40,21 @@
             </tr>
             <tr>
                 <td colspan="4" class="right">
-                    <input type="submit" value="Update Cart">
+                    <input id="non-underline-links" type="submit" value="Update Cart">
                 </td>
             </tr>
             </table>
         </form>
+       <!-- if cart has items, display the Checkout link -->
+    <?php if (cart_product_count() > 0) : ?>
+       <p style="text-align: right">
+             <a id="non-underline-links" href="../checkout">Checkout</a>
+        </p>
+    <?php endif; ?>
         
     <?php endif; ?>
 
-    <p>Return to: <a href="../">Home</a></p>
+    <!--<p>Return to: <a href="../">Home</a></p>-->
 
     <!-- display most recent category -->
     <?php if (isset($_SESSION['last_category_id'])) :
@@ -57,11 +65,7 @@
             <?php echo $_SESSION['last_category_name']; ?></a></p>
     <?php endif; ?>
 
-    <!-- if cart has items, display the Checkout link -->
-    <?php if (cart_product_count() > 0) : ?>
-        <p>
-            Proceed to: <a href="../checkout">Checkout</a>
-        </p>
-    <?php endif; ?>
+   
+    </div>
 </main>
 <?php include '../view/footer.php'; ?>

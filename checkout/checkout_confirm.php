@@ -1,5 +1,7 @@
 <?php include '../view/header.php'; ?>
+<?php include '../view/sidebar.php';?>
 <main>
+    <div id="checkout_view">
     <h1>Confirm Order</h1>
     <table id="cart">
         <tr id="cart_header">
@@ -47,8 +49,9 @@
             </td>
         </tr>
 </table>
-    <p>
-        Proceed to: <a href="<?php echo '?action=payment'; ?>">Payment</a>
+    <p style="text-align: right">
+       <a id="non-underline-links" href="<?php echo '?action=payment'; ?>">  Make Payment</a>
     </p>
+    </div>
 </main>
 <?php include '../view/footer.php'; ?>

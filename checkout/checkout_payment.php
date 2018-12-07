@@ -1,5 +1,7 @@
 <?php include '../view/header.php'; ?>
+<?php include '../view/sidebar.php';?>
 <main>
+    <div id="checkout_view">
     <h2>Billing Address</h2>
     <p><?php echo htmlspecialchars($billing_address['line1']); ?><br>
         <?php if ( strlen($billing_address['line2']) > 0 ) : ?>
@@ -12,8 +14,9 @@
     </p>
     <form action="../account" method="post">
         <input type="hidden" name="action" value="edit_billing">
-        <input type="submit" value="Edit Billing Address">
+        <input id="non-underline-links" type="submit" value="Edit Billing Address">
     </form>
+    <p>
     <h2>Payment Information</h2>
     <form action="." method="post" id="payment_form">
         <input type="hidden" name="action" value="process">
@@ -44,14 +47,13 @@
                value="<?php echo htmlspecialchars($card_expires); ?>">
         <span class="error"><?php echo $cc_expiration_message; ?></span>
         <span>MM/YYYY</span>
-        <br>
-
-        <label>&nbsp;</label>
-        <input type="submit" value="Place Order">&nbsp;&nbsp;
-        <span>Click only once.</span>
+        <br><br>
+        <input id="non-underline-links" type="submit" value="Place Order">&nbsp;&nbsp;
+        <span><i>Click only once.</i></span>
     </form>
     <form action="../cart" method="post" >
-        <input type="submit" value="Cancel Payment Entry">
+        <input id="non-underline-links" type="submit" value="Cancel Payment Entry">
     </form>
+    </div>
 </main>
 <?php include '../view/footer.php'; ?>

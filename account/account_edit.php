@@ -1,6 +1,7 @@
 <?php include '../view/header.php'; ?>
 <?php include '../view/sidebar.php'; ?>
 <main>
+    < <div id="account_view">
     <h1>Edit Account</h1>
     <div id="edit_account_form">
     <form action="." method="post">
@@ -30,12 +31,13 @@
         <?php echo $fields->getField('password_2')->getHTML(); ?><br>
 
         <label>&nbsp;</label>
-        <input type="submit" value="Update Account"><br>
+        <input id="non-underline-links" type="submit" value="Update Account"><br>
     </form>
     <form action="." method="post">
         <label>&nbsp;</label>
-        <input type="submit" value="Cancel">
+        <input id="non-underline-links" type="submit" value="Cancel">
     </form>
+    </div>
     </div>
 </main>
 <?php include '../view/footer.php'; ?>

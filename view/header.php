@@ -22,20 +22,20 @@
             </div>
             <hr>
             <!--Navigation bar added -->
-            <div style="text-align: right;">
-                <a id="non-undeline-links" href="<?php echo $app_path; ?>">Home&nbsp; &nbsp;</a>
+            <div id="nav-div">
+                <a id="non-underline-links" href="<?php echo $app_path; ?>">Home</a>
                 <?php
                 $account_url = $app_path . 'account';
                 $logout_url = $account_url . '?action=logout';
                 if (isset($_SESSION['user'])) :
                     ?>
-                    <a id="non-undeline-links" href="<?php echo $account_url; ?>">My Account&nbsp; &nbsp;</a>
-                    <a id="non-undeline-links" href="<?php echo $logout_url; ?>">Logout&nbsp; &nbsp;</a>
+                    <a id="non-underline-links" href="<?php echo $account_url; ?>">My Account</a> 
+                    <a id="non-underline-links" href="<?php echo $logout_url; ?>">Logout </a>
                 <?php else: ?>
-                    <a id="non-undeline-links" href="<?php echo $account_url; ?>">Login/Register&nbsp; &nbsp;</a>
+                    <a id="non-underline-links" href="<?php echo $account_url; ?>">Login/Register</a>
                 <?php endif; ?>
-                <a id="non-undeline-links" href="<?php echo $app_path . 'cart'; ?>">
-                    Cart<img id="cart-logo" src="<?php echo $app_path ?>./images/shoppingCart.png" alt ='header logo'>
+                <a id="non-underline-links" href="<?php echo $app_path . 'cart'; ?>">
+                    <img id="cart-logo" src="<?php echo $app_path ?>./images/shoppingCart.png" alt ='header logo'>
                 </a>
 
             </div>

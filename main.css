@@ -8,7 +8,7 @@ body {
     margin: 0 auto;
     padding: 0 2em;
     background-color: #FFFFFF;
-    border: 1px solid black;
+    border: 2px solid pink;
 }
 header {
     border-bottom: 2px solid black;
@@ -20,7 +20,7 @@ header h1 {
 main {
     margin-bottom: 1em;
     float: left;
-    width: 70%;
+    width: 85%;
 }
 aside {
     float: left;
@@ -101,6 +101,9 @@ form {
 #left_column {
     float: left;
     width: 150px;
+    border: solid 2px white;
+    background: #D0F400;
+    border-radius: 900px;
 }
 #right_column {
     float: left;
@@ -108,6 +111,9 @@ form {
     padding-bottom: .5em;
     /*width: 330px;*/
     width:70%;
+    border: solid 2px white;
+    background:#48E9CC; 
+    border-radius: 30px;
 }
 #left_column p img {
     text-align: center;
@@ -178,6 +184,17 @@ form {
 .product_image_column {
     width: 8em;
     text-align: center;
+    border: solid 2px white;
+    background: #D0F400;
+    border-radius: 900px;
+}
+#product_desc{
+    text-align: justify;
+    text-justify: inter-word;
+    border: solid 2px white;
+    background: #48E9CC;
+    padding: 10px;
+    border-radius: 30px;
 }
 
 #add_to_cart_form {
@@ -257,7 +274,7 @@ form {
 } 
 #header-div{
     background: #000; 
-    border: solid 2px #66ff33;
+    border: solid 5px #66ff33;
 }
 #header-img{
     vertical-align:middle;
@@ -280,12 +297,28 @@ form {
     vertical-align:middle; 
     margin-left: 10px
 }
-#non-undeline-links{
-    text-decoration: none 
+#nav-div{
+    text-align: right; 
+    /*background: #F4AB00;*/
+    height:35px;
+    /*border: solid 2px #66ff33;*/
+}
+#non-underline-links{
+    text-decoration: none; 
+    vertical-align: middle;
+    color: white;
+    height:30px;
+    margin-right: 5px;
+    border-radius: 3px;
+    background: #002D66;
+    padding: 5px; 
+}
+#non-underline-links:hover{
+    color: #F43000;
 }
 #cart-logo{
     margin-right: 2px;
-    padding: 1px; 
+    padding: 0px; 
     vertical-align:middle;
     width:25px;
     height:25px;
@@ -295,4 +328,61 @@ form {
     pading: 5px 5px 5px 5px;
     margin-right: 5px;
     margin-left: 5px;
+}
+#login_form{
+    text-align: left;
+    border: solid 2px white;
+    background: #48E9CC;
+    padding: 10px;
+}
+#register_form{
+    text-align: left;
+    border: solid 2px white;
+    background: #48E9CC;
+    padding: 10px;
+}
+#cart_view{
+    justify-content: center;
+    text-align: left;
+    border: solid 2px white;
+    background: #48E9CC;
+    padding: 10px;
+}
+#checkout_view{
+    justify-content: center;
+    text-align: left;
+    border: solid 2px white;
+    background: #48E9CC;
+    padding: 10px;
+    margin-top: 10px;
+}
+#account_view{
+    justify-content: center;
+    text-align: left;
+    border: solid 2px white;
+    background: #48E9CC;
+    padding: 10px;
+    margin-top: 10px;
+}
+#sidebar_view{
+    text-decoration: none; 
+    text-align: center;
+    vertical-align: bottom;
+    color: white;
+    height:30px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background: #002D66;
+    padding-top: 10px;
+}
+#sidebar_a{
+    text-decoration: none; 
+    text-align: center;
+    color: white;
+    vertical-align: middle;
+    padding-top: 15px;
+}
+#sidebar_a:hover{
+    color: #F43000;
 }

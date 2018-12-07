@@ -68,7 +68,7 @@ class Validate {
 
         // Call the pattern method to validate a phone number
         $pattern = '/^[[:digit:]]{3}-[[:digit:]]{3}-[[:digit:]]{4}$/';
-        $message = 'Invalid phone number. Use 999-999-9999 format';
+        $message = 'Invalid phone number. Use 999-999-9999';
         $this->pattern($name, $value, $pattern, $message, $required);
     }
 

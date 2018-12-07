@@ -36,10 +36,11 @@
                 $id = $category['categoryID'];
                 $url = $app_path . 'catalog?category_id=' . $id;
         ?>
-        <li>
-            <a href="<?php echo $url; ?>">
-               <?php echo htmlspecialchars($name); ?>
+        <li id= "sidebar_view">
+            <a id="sidebar_a" href="<?php echo $url; ?>">
+               <?php echo htmlspecialchars($name); ?> 
             </a>
+            
         </li>
         <?php endforeach; ?>
     </ul>

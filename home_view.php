@@ -6,6 +6,7 @@
         guitars, basses, and drums. And we're constantly adding more to give
         you the best selection possible!
     </p>
+    <hr>
     <table>
     <?php foreach ($products as $product) :
         // Get product data
@@ -27,19 +28,25 @@
                 <img src="images/<?php echo htmlspecialchars($product['productCode']); ?>_s.png"
                      alt="&nbsp;">
             </td>
-            <td>
+            <td id="product_desc">
                 <p>
-                    <a href="catalog?product_id=<?php echo
+                    <b>
+                    <!--<a href="catalog?product_id=<?php echo
                            $product['productID']; ?>">
-                        <?php echo htmlspecialchars($product['productName']); ?>
-                    </a>
+                        <?//php echo htmlspecialchars($product['productName']); ?>
+                    </a>-->
+                           <?php echo htmlspecialchars($product['productName']); ?> 
+                    </b>
                 </p>
-                <p>
-                    <b>Your price:</b>
+                <p style="color: red">
+                    <b><i>Your price:</i></b>
                     $<?php echo number_format($unit_price, 2); ?>
                 </p>
                 <p>
                     <?php echo $first_paragraph; ?>
+                    <a style="color: blue;" href="catalog?product_id=<?php echo
+                           $product['productID']; ?>"> <br>Click here for details!
+                    </a>
                 </p>
             </td>
         </tr>

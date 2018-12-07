@@ -1,6 +1,7 @@
 <?php include '../view/header.php'; ?>
 <?php include '../view/sidebar.php'; ?>
 <main>
+     <div id="account_view">
     <h1><?php echo $heading; ?></h1>
     <div id="edit_address_form">
     <form action="." method="post">
@@ -37,14 +38,15 @@
         <?php echo $fields->getField('phone')->getHTML(); ?><br>
         
         <label>&nbsp;</label>
-        <input type="submit" 
+        <input id="non-underline-links" type="submit" 
                value="<?php echo htmlspecialchars($heading); ?>">
         <br>
     </form>
     <form action="." method="post">
         <label>&nbsp;</label>
-        <input type="submit" value="Cancel">
+        <input id="non-underline-links" type="submit" value="Cancel">
     </form>
     </div>
+     </div>
 </main>
 <?php include '../view/footer.php'; ?>
