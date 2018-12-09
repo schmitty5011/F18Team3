@@ -1,5 +1,7 @@
 <?php
+
 class Validate {
+
     private $fields;
 
     public function __construct() {
@@ -11,8 +13,7 @@ class Validate {
     }
 
     // Validate a generic text field
-    public function text($name, $value,
-            $required = true, $min = 1, $max = 255) {
+    public function text($name, $value, $required = true, $min = 1, $max = 255) {
 
         // Get Field object
         $field = $this->fields->getField($name);
@@ -27,7 +28,7 @@ class Validate {
         if ($required && empty($value)) {
             $field->setErrorMessage('Required.');
         } else if (strlen($value) < $min) {
-            $field->setErrorMessage('Too short. Must have more than '.$min.' chars!');
+            $field->setErrorMessage('Too short. Must have more than ' . $min . ' chars!');
         } else if (strlen($value) > $max) {
             $field->setErrorMessage('Too long.');
         } else {
@@ -36,8 +37,7 @@ class Validate {
     }
 
     // Validate a field with a generic pattern
-    public function pattern($name, $value, $pattern, $message,
-            $required = true) {
+    public function pattern($name, $value, $pattern, $message, $required = true) {
 
         // Get Field object
         $field = $this->fields->getField($name);
@@ -52,7 +52,7 @@ class Validate {
         $match = preg_match($pattern, $value);
         if ($match === false) {
             $field->setErrorMessage('Error testing field.');
-        } else if ( $match != 1 ) {
+        } else if ($match != 1) {
             $field->setErrorMessage($message);
         } else {
             $field->clearErrorMessage();
@@ -64,7 +64,9 @@ class Validate {
 
         // Call the text method and exit if it yields an error
         $this->text($name, $value, $required);
-        if ($field->hasError()) { return; }
+        if ($field->hasError()) {
+            return;
+        }
 
         // Call the pattern method to validate a phone number
         $pattern = '/^[[:digit:]]{3}-[[:digit:]]{3}-[[:digit:]]{4}$/';
@@ -83,7 +85,9 @@ class Validate {
 
         // Call the text method and exit if it yields an error
         $this->text($name, $value, $required);
-        if ($field->hasError()) { return; }
+        if ($field->hasError()) {
+            return;
+        }
 
         // Split email address on @ sign and check parts
         $parts = explode('@', $value);
@@ -115,7 +119,7 @@ class Validate {
 
         // Patterns for quoted text formatted local part
         $char = '([^\\\\"])';
-        $esc  = '(\\\\[\\\\"])';
+        $esc = '(\\\\[\\\\"])';
         $text = '(' . $char . '|' . $esc . ')+';
         $quoted = '(^"' . $text . '"$)';
 
@@ -123,9 +127,10 @@ class Validate {
         $localPattern = '/' . $address . '|' . $quoted . '/';
 
         // Call the pattern method and exit if it yields an error
-        $this->pattern($name, $local, $localPattern,
-                'Invalid username part.');
-        if ($field->hasError()) { return; }
+        $this->pattern($name, $local, $localPattern, 'Invalid username part.');
+        if ($field->hasError()) {
+            return;
+        }
 
         // Patterns for domain part
         $hostname = '([[:alnum:]]([-[:alnum:]]{0,62}[[:alnum:]])?)';
@@ -134,8 +139,7 @@ class Validate {
         $domainPattern = '/^' . $hostnames . $top . '$/';
 
         // Call the pattern method
-        $this->pattern($name, $domain, $domainPattern,
-                'Invalid domain name part.');
+        $this->pattern($name, $domain, $domainPattern, 'Invalid domain name part.');
     }
 
     public function password($name, $password, $required = true) {
@@ -147,7 +151,9 @@ class Validate {
         }
 
         $this->text($name, $password, $required, 6);
-        if ($field->hasError()) { return; }
+        if ($field->hasError()) {
+            return;
+        }
 
         // Patterns to validate password
         $charClasses = array();
@@ -157,7 +163,7 @@ class Validate {
 
         $pw = '/^';
         $valid = '[';
-        foreach($charClasses as $charClass) {
+        foreach ($charClasses as $charClass) {
             $pw .= '(?=.*[' . $charClass . '])';
             $valid .= $charClass;
         }
@@ -179,7 +185,9 @@ class Validate {
     public function verify($name, $password, $verify, $required = true) {
         $field = $this->fields->getField($name);
         $this->text($name, $verify, $required, 6);
-        if ($field->hasError()) { return; }
+        if ($field->hasError()) {
+            return;
+        }
 
         if (strcmp($password, $verify) != 0) {
             $field->setErrorMessage('Passwords do not match.');
@@ -190,7 +198,9 @@ class Validate {
     public function state($name, $value, $required = true) {
         $field = $this->fields->getField($name);
         $this->text($name, $value, $required);
-        if ($field->hasError()) { return; }
+        if ($field->hasError()) {
+            return;
+        }
 
         $states = array(
             'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC',
@@ -201,31 +211,33 @@ class Validate {
             'VT', 'VA', 'WA', 'WV', 'WI', 'WY');
         $states = implode('|', $states);
         $pattern = '/^(' . $states . ')$/';
-        $this->pattern($name, $value, $pattern,
-                'Invalid state.', $required);
+        $this->pattern($name, $value, $pattern, 'Invalid state.', $required);
     }
 
     public function zip($name, $value, $required = true) {
         $field = $this->fields->getField($name);
         $this->text($name, $value, $required);
-        if ($field->hasError()) { return; }
+        if ($field->hasError()) {
+            return;
+        }
 
         $pattern = '/^[[:digit:]]{5}(-[[:digit:]]{4})?$/';
         $message = 'Invalid zip code.';
         $this->pattern($name, $value, $pattern, $message, $required);
     }
-      // Validate city, longest city in the world is 26 chars and only text
-    public function city($name, $value,
-            $required = true, $min = 1, $max = 26) {
+
+    // Validate city, longest city in the world is 26 chars and only text
+    public function city($name, $value, $required = true, $min = 1, $max = 26) {
         // Get Field object
         $field = $this->fields->getField($name);
         $this->text($name, $value, $required);
-        if ($field->hasError()) { return; }
+        if ($field->hasError()) {
+            return;
+        }
         $pattern = '/^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/';
         $message = 'No start/end space,no digits,only 1 space between words';
         $this->pattern($name, $value, $pattern, $message, $required);
     }
-    
 
     public function cardType($name, $value) {
         $field = $this->fields->getField($name);
@@ -248,19 +260,19 @@ class Validate {
         switch ($type) {
             case 'm':  // MasterCard
                 $prefixes = '51-55';
-                $lengths  = '16';
+                $lengths = '16';
                 break;
             case 'v':  // Visa
                 $prefixes = '4';
-                $lengths  = '13,16';
+                $lengths = '13,16';
                 break;
             case 'a':  // American Express
                 $prefixes = '34,37';
-                $lengths  = '15';
+                $lengths = '15';
                 break;
             case 'd':  // Discover
                 $prefixes = '6011,622126-622925,644-649,65';
-                $lengths  = '16';
+                $lengths = '16';
                 break;
             case '':   // No card type selected.
                 $field->clearErrorMessage();
@@ -272,14 +284,14 @@ class Validate {
         // Check lengths
         $lengths = explode(',', $lengths);
         $validLengths = false;
-        foreach($lengths as $length) {
+        foreach ($lengths as $length) {
             $pattern = '/^[[:digit:]]{' . $length . '}$/';
             if (preg_match($pattern, $value) === 1) {
                 $validLengths = true;
                 break;
             }
         }
-        if ( ! $validLengths ) {
+        if (!$validLengths) {
             $field->setErrorMessage('Invalid card number length.');
             return;
         }
@@ -287,12 +299,12 @@ class Validate {
         $prefixes = explode(',', $prefixes);
         $rangePattern = '/^[[:digit:]]+-[[:digit:]]+$/';
         $validPrefix = false;
-        foreach($prefixes as $prefix) {
+        foreach ($prefixes as $prefix) {
             if (preg_match($rangePattern, $prefix) === 1) {
                 $range = explode('-', $prefix);
                 $start = intval($range[0]);
                 $end = intval($range[1]);
-                for( $prefix = $start; $prefix <= $end; $prefix++ ) {
+                for ($prefix = $start; $prefix <= $end; $prefix++) {
                     $pattern = '/^' . $prefix . '/';
                     if (preg_match($pattern, $value) === 1) {
                         $validPrefix = true;
@@ -307,7 +319,7 @@ class Validate {
                 }
             }
         }
-        if ( ! $validPrefix ) {
+        if (!$validPrefix) {
             $field->setErrorMessage('Invalid card number prefix.');
             return;
         }
@@ -320,7 +332,7 @@ class Validate {
             $digit = ($digit > 9) ? $digit - 9 : $digit;
             $sum += $digit;
         }
-        if ( $sum % 10 != 0 ) {
+        if ($sum % 10 != 0) {
             $field->setErrorMessage('Invalid card number checksum.');
             return;
         }
@@ -331,21 +343,21 @@ class Validate {
         $field = $this->fields->getField($name);
         $datePattern = '/^(0[1-9]|1[012])\/[1-9][[:digit:]]{3}?$/';
         $match = preg_match($datePattern, $value);
-        if ( $match === false ) {
+        if ($match === false) {
             $field->setErrorMessage('Error testing field.');
             return;
         }
-        if ( $match != 1 ) {
+        if ($match != 1) {
             $field->setErrorMessage('Invalid date format.');
             return;
         }
         $dateParts = explode('/', $value);
         $month = $dateParts[0];
-        $year  = $dateParts[1];
+        $year = $dateParts[1];
         $dateString = $month . '/01/' . $year . ' last day of 23:59:59';
         $exp = new DateTime($dateString);
         $now = new DateTime();
-        if ( $exp < $now ) {
+        if ($exp < $now) {
             $field->setErrorMessage('Card has expired.');
             return;
         }
@@ -353,4 +365,5 @@ class Validate {
     }
 
 }
+
 ?>
