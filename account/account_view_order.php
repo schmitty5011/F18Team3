@@ -44,66 +44,66 @@
                 <th class="right">Quantity</th>
                 <th class="right">Line Total</th>
             </tr>
-<?php
-$subtotal = 0;
-foreach ($order_items as $item) :
-    $product_id = $item['productID'];
-    $product = get_product($product_id);
-    $item_name = $product['productName'];
-    $list_price = $item['itemPrice'];
-    $savings = $item['discountAmount'];
-    $your_cost = $list_price - $savings;
-    $quantity = $item['quantity'];
-    $line_total = $your_cost * $quantity;
-    $subtotal += $line_total;
-    ?>
+            <?php
+            $subtotal = 0;
+            foreach ($order_items as $item) :
+                $product_id = $item['productID'];
+                $product = get_product($product_id);
+                $item_name = $product['productName'];
+                $list_price = $item['itemPrice'];
+                $savings = $item['discountAmount'];
+                $your_cost = $list_price - $savings;
+                $quantity = $item['quantity'];
+                $line_total = $your_cost * $quantity;
+                $subtotal += $line_total;
+                ?>
                 <tr>
                     <td><?php echo htmlspecialchars($item_name); ?></td>
                     <td class="right">
-    <?php echo sprintf('$%.2f', $list_price); ?>
+                        <?php echo sprintf('$%.2f', $list_price); ?>
                     </td>
                     <td class="right">
-    <?php echo sprintf('$%.2f', $savings); ?>
+                        <?php echo sprintf('$%.2f', $savings); ?>
                     </td>
                     <td class="right">
-    <?php echo sprintf('$%.2f', $your_cost); ?>
+                        <?php echo sprintf('$%.2f', $your_cost); ?>
                     </td>
                     <td class="right">
-    <?php echo $quantity; ?>
+                        <?php echo $quantity; ?>
                     </td>
                     <td class="right">
-    <?php echo sprintf('$%.2f', $line_total); ?>
+                        <?php echo sprintf('$%.2f', $line_total); ?>
                     </td>
                 </tr>
-<?php endforeach; ?>
+            <?php endforeach; ?>
             <tr id="cart_footer">
                 <td colspan="5" class="right">Subtotal:</td>
                 <td class="right">
-<?php echo sprintf('$%.2f', $subtotal); ?>
+                    <?php echo sprintf('$%.2f', $subtotal); ?>
                 </td>
             </tr>
             <tr>
                 <td colspan="5" class="right">
-<?php echo htmlspecialchars($shipping_address['state']); ?> Tax:
+                    <?php echo htmlspecialchars($shipping_address['state']); ?> Tax:
                 </td>
                 <td class="right">
-<?php echo sprintf('$%.2f', $order['taxAmount']); ?>
+                    <?php echo sprintf('$%.2f', $order['taxAmount']); ?>
                 </td>
             </tr>
             <tr>
                 <td colspan="5" class="right">Shipping:</td>
                 <td class="right">
-<?php echo sprintf('$%.2f', $order['shipAmount']); ?>
+                    <?php echo sprintf('$%.2f', $order['shipAmount']); ?>
                 </td>
             </tr>
             <tr>
                 <td colspan="5" class="right">Total:</td>
                 <td class="right">
-<?php
-$total = $subtotal + $order['taxAmount'] +
-        $order['shipAmount'];
-echo sprintf('$%.2f', $total);
-?>
+                    <?php
+                    $total = $subtotal + $order['taxAmount'] +
+                            $order['shipAmount'];
+                    echo sprintf('$%.2f', $total);
+                    ?>
                 </td>
             </tr>
         </table>

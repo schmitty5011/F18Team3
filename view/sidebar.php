@@ -22,36 +22,36 @@
             <a href="<//?php echo $app_path; ?>">Home</a>
         </li>
     </ul>
-        -->
+    -->
     <h2>Categories</h2>
     <ul>
         <!-- display links for all categories -->
         <?php
-            require_once('model/database.php');
-            require_once('model/category_db.php');
-            
-            $categories = get_categories();
-            foreach($categories as $category) :
-                $name = $category['categoryName'];
-                $id = $category['categoryID'];
-                $url = $app_path . 'catalog?category_id=' . $id;
-        ?>
-        <li id= "sidebar_view">
-            <a id="sidebar_a" href="<?php echo $url; ?>">
-               <?php echo htmlspecialchars($name); ?> 
-            </a>
-            
-        </li>
+        require_once('model/database.php');
+        require_once('model/category_db.php');
+
+        $categories = get_categories();
+        foreach ($categories as $category) :
+            $name = $category['categoryName'];
+            $id = $category['categoryID'];
+            $url = $app_path . 'catalog?category_id=' . $id;
+            ?>
+            <li id= "sidebar_view">
+                <a id="sidebar_a" href="<?php echo $url; ?>">
+                    <?php echo htmlspecialchars($name); ?> 
+                </a>
+
+            </li>
         <?php endforeach; ?>
     </ul>
-    
-   <!-- Removed this temp link code 
-   <h2>Temp Link</h2>
-    <ul>
-        <li>
-            <!-- This link is for testing only.
-                 Remove it from a production application. -->
-           <!-- <a href="<//?php echo $app_path; ?>admin">Admin</a>
-        </li>        
-    </ul> -->
+
+    <!-- Removed this temp link code 
+    <h2>Temp Link</h2>
+     <ul>
+         <li>
+    <!-- This link is for testing only.
+         Remove it from a production application. -->
+    <!-- <a href="<//?php echo $app_path; ?>admin">Admin</a>
+ </li>        
+</ul> -->
 </aside>
