@@ -23,8 +23,9 @@
         </li>
     </ul>
     -->
-    <h2>Categories</h2>
+    
     <ul>
+    	<h2 style="text-align:center">Categories</h2>
         <!-- display links for all categories -->
         <?php
         require_once('model/database.php');
@@ -44,7 +45,7 @@
             </li>
         <?php endforeach; ?>
     </ul>
-
+	<img style="display: block;margin-left: auto;margin-right: auto;width: 50%;" src="<?php echo $app_path ?>./images/guitarGif.gif" alt ='guitar gif' >
     <!-- Removed this temp link code 
     <h2>Temp Link</h2>
      <ul>

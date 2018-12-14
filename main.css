@@ -103,7 +103,7 @@ form {
     width: 150px;
     border: solid 2px white;
     background: #D0F400;
-    border-radius: 900px;
+    border-radius: 2px;
 }
 #right_column {
     float: left;
@@ -113,7 +113,7 @@ form {
     width:70%;
     border: solid 2px white;
     background:#48E9CC; 
-    border-radius: 30px;
+    border-radius: 2px;
 }
 #left_column p img {
     text-align: center;
@@ -186,15 +186,29 @@ form {
     text-align: center;
     border: solid 2px white;
     background: #D0F400;
-    border-radius: 900px;
+    border-radius: 2px;
+}
+#product_image_col {
+    width: 25%;
+    text-align: center;
+    border: solid 2px white;
+    background: #D0F400;
+    border-radius: 2px;
+}
+#product_image_logo{
+	margin-right: 2px;
+    padding: 0px; 
+    vertical-align:middle;
+    width:50%;
+    height:45%;
 }
 #product_desc{
     text-align: justify;
     text-justify: inter-word;
     border: solid 2px white;
-    background: #48E9CC;
+    background: #13b9bf;
     padding: 10px;
-    border-radius: 30px;
+    border-radius: 2px;
 }
 
 #add_to_cart_form {
@@ -269,12 +283,13 @@ form {
     margin: 1em 0;	
 }
 #catalog-image {  
-    width: 40%;  
-    height: 40%; 
+    width: 90px;  
+    height: 200px;
+    overflow:hidden; 
 } 
 #header-div{
     background: #000; 
-    border: solid 5px #66ff33;
+    border: solid 5px black;
 }
 #header-img{
     vertical-align:middle;
@@ -305,7 +320,8 @@ form {
 }
 #non-underline-links{
     text-decoration: none; 
-    vertical-align: middle;
+    vertical-align: bottom;
+    text-align:center;
     color: white;
     height:30px;
     margin-right: 5px;
@@ -318,10 +334,10 @@ form {
 }
 #cart-logo{
     margin-right: 2px;
-    padding: 0px; 
-    vertical-align:middle;
+    padding: 2px; 
+    vertical-align:bottom;
     width:25px;
-    height:25px;
+    height:21px;
 }
 #aside-style{
     border:solid blue 1px;
@@ -370,9 +386,9 @@ form {
     vertical-align: bottom;
     color: white;
     height:30px;
-    margin-top: 5px;
+    margin-top: 15px;
     margin-right: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     background: #002D66;
     padding-top: 10px;
 }
@@ -385,4 +401,33 @@ form {
 }
 #sidebar_a:hover{
     color: #F43000;
+}
+#hfont{
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+font-size: 27px;
+letter-spacing: 0px;
+word-spacing: 3.2px;
+color: #15199E;
+font-weight: normal;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}
+#pfont{
+font-family: "Comic Sans MS", cursive, sans-serif;
+font-size: 15px;
+letter-spacing: 0px;
+word-spacing: 3.2px;
+color: #186D65;
+font-weight: 700;
+text-decoration: none;
+font-style: italic;
+font-variant: small-caps;
+text-transform: none;
+}
+#table-catalog{
+	width:100%;
+	height:60px;
+  border: 2px solid black;
 }
