@@ -5,7 +5,11 @@ $doc_root = filter_input(INPUT_SERVER, 'DOCUMENT_ROOT', FILTER_SANITIZE_STRING);
 // Get the application path
 $uri = filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING);
 $dirs = explode('/', $uri);
+<<<<<<< HEAD
 $app_path = '/' . $dirs[1] . '/';
+=======
+$app_path = '/' . $dirs[1] . '/';// . $dirs[2] . '/';
+>>>>>>> 74d05023e4b50445ffcdb1bf33ef0f8e9fd571c3
 
 // Set the include path
 set_include_path($doc_root . $app_path);
