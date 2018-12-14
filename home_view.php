@@ -1,11 +1,13 @@
 <?php include 'view/header.php'; ?>
 <?php include 'view/sidebar.php'; ?>
-<main class="nofloat">
-    <h1>Featured products</h1>
-    <p>We have a great selection of musical instruments including
+<main>
+	<div>
+    <h1 id="hfont">Featured products</h1>
+    <p id="pfont">We have a great selection of musical instruments including
         guitars, basses, and drums. And we're constantly adding more to give
         you the best selection possible!
     </p>
+    </div>
     <hr>
     <table>
         <?php
@@ -26,7 +28,7 @@
             ?>
             <tr>
                 <td class="product_image_column" >
-                    <img src="images/<?php echo htmlspecialchars($product['productCode']); ?>_s.png"
+                    <img id="product_image_logo" src="images/<?php echo htmlspecialchars($product['productCode']); ?>_m.png"
                          alt="&nbsp;">
                 </td>
                 <td id="product_desc">
@@ -39,6 +41,7 @@
                             </a>-->
     <?php echo htmlspecialchars($product['productName']); ?> 
                         </b>
+                        <img style="display: inline;width: 30px;height:30px" src="<?php echo $app_path ?>./images/sale.gif" alt ='sale gif'>
                     </p>
                     <p style="color: red">
                         <b><i>Your price:</i></b>

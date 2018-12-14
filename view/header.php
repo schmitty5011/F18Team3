@@ -19,6 +19,7 @@
                 <span id="header-span2">
                     "The Amazon of musical instruments"!
                 </span>
+                
             </div>
             <hr>
             <!--Navigation bar added -->
