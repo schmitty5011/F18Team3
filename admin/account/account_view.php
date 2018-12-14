@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../adminCss.css" type="text/css">
 <?php include 'view/header.php'; ?>
 <?php include 'view/sidebar_admin.php'; ?>
 <main>
@@ -46,7 +47,7 @@
         </table>
     <?php endif; ?>
     <h2>Add an Administrator</h2>
-    <form action="." method="post" id="add_admin_user_form">
+    <form class="form-style-4" action="." method="post" id="add_admin_user_form">
         <input type="hidden" name="action" value="create">
         <label>E-Mail:</label>
         <input type="text" name="email"

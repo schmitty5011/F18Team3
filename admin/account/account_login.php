@@ -2,7 +2,7 @@
 <?php include 'view/sidebar_admin.php'; ?>
 <main>
     <h1>Admin Login</h1>
-    <form action="." method="post" id="login_form">
+    <form class="form-style-4" action="." method="post" id="login_form">
         <input type="hidden" name="action" value="login">
         
         <label>E-Mail:</label>

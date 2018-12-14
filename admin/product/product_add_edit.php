@@ -9,7 +9,7 @@
     }
     ?>
     <h1>Product Manager - <?php echo $heading_text; ?></h1>
-    <form action="index.php" method="post" id="add_product_form">
+    <form class="form-style-4" action="index.php" method="post" id="add_product_form">
         <?php if (isset($product_id)) : ?>
             <input type="hidden" name="action" value="update_product">
             <input type="hidden" name="product_id"

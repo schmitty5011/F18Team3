@@ -11,17 +11,17 @@
             <?php echo htmlspecialchars($current_category['categoryName']); ?>
         </h1>
             <?php foreach ($products as $product) : ?>
-            <p>
-                <a href="?action=view_product&amp;product_id=<?php
+        <ul>
+            <li><a href="?action=view_product&amp;product_id=<?php
                           echo $product['productID']; ?>">
                     <?php echo htmlspecialchars($product['productName']); ?>
-                </a>
-            </p>
+                </a></li>
+        </ul>
             <?php endforeach; ?>
     <?php endif; ?>
 
     <h1>Links</h1>
-    <p><a href="index.php?action=show_add_edit_form">Add Product</a></p>
+    <ul><li><a href="index.php?action=show_add_edit_form">Add Product</a></li></ul>
 
 </main>
 <?php include '../../view/footer.php'; ?>

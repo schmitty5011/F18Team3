@@ -3,7 +3,7 @@
 <main>
     <h1>Edit Account</h1>
     <div id="edit_account_form">
-    <form action="." method="post">
+        <form class="form-style-4" action="." method="post">
         <input type="hidden" name="action" value="update">
         <input type="hidden" name="admin_id"
                value="<?php echo $admin_id; ?>">

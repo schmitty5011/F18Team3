@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="../adminCss.css" type="text/css">
 <?php
 require_once('../../util/main.php');
 require_once('util/secure_conn.php');

@@ -48,10 +48,10 @@
     <!-- Removed this temp link code 
     <h2>Temp Link</h2>
      <ul>
-         <li>
+         <li>-->
     <!-- This link is for testing only.
          Remove it from a production application. -->
-    <!-- <a href="<//?php echo $app_path; ?>admin">Admin</a>
+<!--    <a href="<//?php echo $app_path; ?>admin">Admin</a>
  </li>        
 </ul> -->
 </aside>

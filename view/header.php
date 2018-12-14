@@ -24,6 +24,7 @@
             <!--Navigation bar added -->
             <div id="nav-div">
                 <a id="non-underline-links" href="<?php echo $app_path; ?>">Home</a>
+                <a id="non-underline-links" href="/612_HW_5/admin/account">Admin Login</a>
                 <?php
                 $account_url = $app_path . 'account';
                 $logout_url = $account_url . '?action=logout';
