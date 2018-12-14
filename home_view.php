@@ -43,15 +43,22 @@
                         </b>
                         <img style="display: inline;width: 30px;height:30px" src="<?php echo $app_path ?>./images/sale.gif" alt ='sale gif'>
                     </p>
-                    <p style="color: red">
+                    
+                    <p style="color: red; display:inline">
                         <b><i>Your price:</i></b>
                         $<?php echo number_format($unit_price, 2); ?>
+                        <form action="<?php echo $app_path . 'cart' ?>" method="get" id="add_to_cart_form">
+        						<input type="hidden" name="action" value="add" />
+    							<input type="hidden" name="product_id" value="<?php echo $product['productID']; ?>" /> 
+        						<input type="hidden" name="quantity" value="1" size="2" />
+        						<input id = "non-underline-links" type="submit" value="Instant Buy" />
+   						</form>
                     </p>
                     <p>
                            <?php echo $first_paragraph; ?>
                         <a style="color: blue;" href="catalog?product_id=<?php echo
                        $product['productID'];
-                       ?>"> <br>Click here for details!
+                       ?>"> <br>Click here for more details & bulk Orders!
                         </a>
                     </p>
                 </td>
