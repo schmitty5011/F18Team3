@@ -44,9 +44,15 @@ $image_alt = 'Image filename: ' . $image_filename;
         <input type="hidden" name="action" value="add" />
         <input type="hidden" name="product_id"
                value="<?php echo $product_id; ?>" />
-        <b>Quantity:</b>&nbsp;
-        <input type="text" name="quantity" value="1" size="2" />
-        <input id = "non-underline-links" type="submit" value="Add to Cart" />
+               <?php if (isset($_SESSION['user'])) { ?>
+            <b>Quantity:</b>&nbsp;
+            <input type="text" name="quantity" value="1" size="2" />
+            <input id = "non-underline-links" type="submit" value="Add to Cart" />
+            <?php
+        } else {
+            //Do nothing dont show the quantity and add to cart
+        }
+        ?>
     </form>
     <h2>Description</h2>
     <?php echo $description_with_tags; ?>

@@ -1,6 +1,7 @@
-<?php include 'view/header.php'; ?>
+<?php include 'view/header_admin.php'; ?>
 <?php include 'view/sidebar_admin.php'; ?>
 <main>
+    <div id="admin_div">
     <h2>Delete Order</h2>
     <p>Order Number: <?php echo $order_id; ?></p>
     <p>Order Date: <?php echo $order_date; ?></p>
@@ -16,5 +17,6 @@
     <form action="." method="post">
         <input type="submit" value="Cancel">
     </form>
+    </div>
 </main>
 <?php include 'view/footer.php'; ?>

@@ -16,7 +16,7 @@
             <?php echo $fields->getField('password')->getHTML(); ?><br>
 
 
-            <input  id="non-underline-links"  type="submit" value="Login">
+            <input  id="non-underline-links_admin_l"  type="submit" value="Login">
             <?php if (!empty($password_message)) : ?>         
                 <span class="error"><?php echo htmlspecialchars($password_message); ?></span><br>
             <?php endif; ?>
@@ -26,7 +26,7 @@
             <h1>Register</h1>
             <form action="." method="post">
                 <input type="hidden" name="action" value="view_register">
-                <input  id="non-underline-links"  type="submit" value="Register">
+                <input  id="non-underline-links_admin_l"  type="submit" value="Register">
             </form>
         </div>
     </div>

@@ -46,10 +46,11 @@
         $order_date = date('M j, Y', $order_date);
         $url = $app_path . 'account' .
                 '?action=view_order&order_id=' . $order_id;
-        ?>
+        ?>				
                     <li>
-                        Click order number to see order details <a id="non-underline-links" href="<?php echo $url; ?>">
-                            <?php echo $order_id; ?></a> placed on
+                    <hr>
+                        <a id="non-underline-links" href="<?php echo $url; ?>">
+                            <?php echo "Order number: ".$order_id." (Click here to view order)"; ?></a> placed on
                             <?php echo $order_date; ?>
                     </li>
                 <?php endforeach; ?>
