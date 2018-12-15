@@ -62,8 +62,8 @@
             $category_url = '../catalog' .
                     '?category_id=' . $_SESSION['last_category_id'];
             ?>
-            <p>Return to: <a href="<?php echo $category_url; ?>">
-            <?php echo $_SESSION['last_category_name']; ?></a></p>
+            <!--<p>Return to: <a href="<?php echo $category_url; ?>">
+            <?php echo $_SESSION['last_category_name']; ?></a></p>-->
 <?php endif; ?>
 
 

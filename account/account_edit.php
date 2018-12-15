@@ -1,7 +1,7 @@
 <?php include '../view/header.php'; ?>
 <?php include '../view/sidebar.php'; ?>
 <main>
-    < <div id="account_view">
+    <div id="account_view">
         <h1>Edit Account</h1>
         <div id="edit_account_form">
             <form action="." method="post">

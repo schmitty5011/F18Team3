@@ -2,6 +2,7 @@
 <?php include '../view/sidebar.php'; ?>
 <main>
     <div id="account_view">
+    <hr>
         <h2>Your Order</h2>
         <p>Order Number:<b> <?php echo $order_id; ?></b>
             Order Date: <b><?php echo $order_date; ?></b></p>
